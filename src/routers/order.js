@@ -32,4 +32,9 @@ orderRouter.post('/purchase/:name', async (req, res) => {
 
 })
 
+orderRouter.get('/history', async (req, res) => {
+    const allOrders = await Order.find({})
+    res.status(200).send(allOrders)
+})
+
 module.exports = orderRouter
