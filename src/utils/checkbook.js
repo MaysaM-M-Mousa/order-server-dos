@@ -1,8 +1,8 @@
 const request = require('request')
 
-const checkBookPromise = (name) => {
+const checkBookPromise = (ISBN) => {
     return new Promise((resolve, reject) => {
-        const url = 'http://localhost:3001/books/info/' + name
+        const url = 'http://localhost:3000/books/info/' + ISBN
 
         request({ url, json: true }, (error, { body } = {}) => {
             if (error) {

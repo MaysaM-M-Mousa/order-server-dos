@@ -1,6 +1,16 @@
 const mongoose = require('mongoose')
 
 const orderSchema = new mongoose.Schema({
+    ISBN: {
+        type: Number,
+        required: true,
+        unique: true,
+        validate(val) {
+            if (val < 0 || val.toString().length !== 10) {
+                throw new Error("Please! \"ISBN\" must be of length 10 and a positive number")
+            }
+        }
+    },
     name: {
         type: String,
         required: true,

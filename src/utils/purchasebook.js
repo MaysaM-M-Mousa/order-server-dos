@@ -1,8 +1,8 @@
 const request = require('request')
 
-const purchaseBookPromise = (name, formData) => {
+const purchaseBookPromise = (ISBN, formData) => {
     return new Promise((resolve, reject) => {
-        const url = 'http://localhost:3001/books/' + name
+        const url = 'http://localhost:3000/books/' + ISBN
         request({ url, json: true, method: 'PATCH', body: formData }, (error, { body, statusCode } = {}) => {
             if (error) {
                 return reject("Failed!")
